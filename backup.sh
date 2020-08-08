@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # @file: backup.sh
-# @brief: 定时备份重要文件夹
+# @brief: 备份重要文件夹
 # @author: feihu1996.cn
 # @date: 20-14-41
 # @version: 1.0
