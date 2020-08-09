@@ -8,3 +8,4 @@
 
 cp -rfv /home/gaosx/Downloads/* /mnt/usb/downloads/
 cp -rfv /opt/app/* /mnt/usb/code/
+cp -rfv /home/gaosx/Pictures/* /mnt/usb/downloads/
