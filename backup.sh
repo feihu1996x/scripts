@@ -22,4 +22,3 @@ sudo zip -q -r $BASEDIR/documents.zip /home/gaosx/Documents && sudo mv -f $BASED
 
 # 备份视频目录
 sudo zip -q -r $BASEDIR/videos.zip /home/gaosx/Videos && sudo mv -f $BASEDIR/videos.zip /mnt/usb/backup/
-
