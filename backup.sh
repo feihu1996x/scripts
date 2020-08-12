@@ -15,7 +15,7 @@ sudo zip -q -r $BASEDIR/downloads.zip /home/gaosx/Downloads && sudo mv -f $BASED
 sudo zip -q -r $BASEDIR/pictures.zip /home/gaosx/Pictures && sudo mv -f $BASEDIR/pictures.zip /mnt/usb/backup/
 
 # 备份应用目录
-sudo zip -q -r $BASEDIR/app.zip /opt/app && sudo mv -f $BASEDIR/app.zip /mnt/usb/backup/
+sudo zip -q -r $BASEDIR/app.zip /home/gaosx/Apps && sudo mv -f $BASEDIR/app.zip /mnt/usb/backup/
 
 # 备份文档目录
 sudo zip -q -r $BASEDIR/documents.zip /home/gaosx/Documents && sudo mv -f $BASEDIR/documents.zip /mnt/usb/backup/
