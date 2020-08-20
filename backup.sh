@@ -6,7 +6,11 @@
 # @date: 20-08-09
 # @version: 1.0
 
-BASEDIR=`dirname ${0}`
+BASEDIR='/mnt/usb/backup'
+
+if [ ! -d $BASEDIR ]; then
+	exit 0
+fi
 
 # 备份下载目录
 sudo rm -rf $BASEDIR/downloads.zip
@@ -27,3 +31,4 @@ sudo zip -q -r $BASEDIR/documents.zip /home/gaosx/Documents && sudo mv -f $BASED
 # 备份视频目录
 sudo rm -rf $BASEDIR/videos.zip
 sudo zip -q -r $BASEDIR/videos.zip /home/gaosx/Videos && sudo mv -f $BASEDIR/videos.zip /mnt/usb/backup/
+
