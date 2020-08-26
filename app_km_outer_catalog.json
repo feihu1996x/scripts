@@ -1,0 +1,16 @@
+{
+  "_id": "8a659100-e10c-11e9-a337-7f012fffbd29",
+  "name": "广州常春藤",
+  "pid": "0",
+  "order": 0,
+  "kmType": "outer",
+  "accountId": "N00000020170"
+}
+{
+  "_id": "a4c6436e-4da9-4b69-bfa2-6c318046b3b4",
+  "accountId": "N00000020170",
+  "order": 1,
+  "name": "遵义蔷薇国际",
+  "pid": "0",
+  "kmType": "outer"
+}
