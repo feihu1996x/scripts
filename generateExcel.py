@@ -59,6 +59,7 @@ def _getAppKmClass(cidListByLayer, c, cid):
         del _k
         del _v
 
+
 def getAppKmClass(c, cid):
     _cidListByLayer = []
     _getAppKmClass(_cidListByLayer, c, cid)
