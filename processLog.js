@@ -3,7 +3,8 @@ var readline = require('readline');
 var path = require("path");
 
 var root = path.join(__dirname);
-var data = {};
+var data = [];
+var sessionIds = ["1732620","1732644","1732712","1732798","1732978","1732968","1733141","1733155"];
 
 readDirSync(root);
 
@@ -14,22 +15,15 @@ function readDirSync(path) {
         if (info.isDirectory()) {
             readDirSync(path + "/" + ele);
         } else {
+            var lastLine = null;
             read_file(ele, function (arr) {
                 for (var arrItem of arr) {
-                    if ((/8195@gzjs/).test(arrItem) && (/2020-11-04/).test(arrItem)) {
-                        try {
-                            var res = JSON.parse(arrItem.replace(/\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}.\d{3}\] \[INFO\] app - get request service\[.*?-.*?-.*?-.*?-.*?\] from\[127.0.0.1\]:/i, ""));
-                            var datetime = arrItem.replace(/ \[INFO\] app - get request service\[.*?-.*?-.*?-.*?-.*?\] from\[127.0.0.1\]:.*/i, "").replace(/\[|\]/g, "");
-                            var ipAddr = arrItem.replace(/\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}.\d{3}\] \[INFO\] app - get request service\[.*?-.*?-.*?-.*?-.*?\] from\[/i, "").replace(/{.*}/g, "").replace(/]:/g," ");
-                            if (!data[res.data.ApnsDeviceId]) {
-                                data[res.data.ApnsDeviceId] = [];
-                            }
-                            data[res.data.ApnsDeviceId].push((datetime + "," + res.data.ApnsDeviceId + "," + ipAddr + "," + res.data.Platform).replace(" ,iOS", ",iOS"));
-                            fs.writeFileSync("demo/res.json", JSON.stringify(data));
-                        } catch (error) {
-                            fs.appendFileSync("demo/err.json", arrItem);
-                        }
+                    var pattern = 'Got message from .*?"LoginName":"8195@gzjs"';
+                    if (lastLine && (/2020-11-05.*?/).test(lastLine) && (new RegExp(pattern)).test(arrItem)) {
+                        data.push(lastLine + "\n" + arrItem);
+                        fs.writeFileSync("demo/res.json", data.join("\n"));
                     }
+                    lastLine = arrItem;
                 }
             });
 
